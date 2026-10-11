@@ -7,7 +7,6 @@
     ./desktops/niri.nix
     ./desktops/noctalia.nix
 
-    ./languages/android.nix
     ./languages/kotlin.nix
     ./languages/python.nix
 

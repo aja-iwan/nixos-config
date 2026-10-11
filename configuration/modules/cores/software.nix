@@ -25,6 +25,7 @@
     neovim
     yazi
     kitty
+    vulkan-tools
     wl-clipboard
     tree-sitter
     ripgrep
