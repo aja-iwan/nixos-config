@@ -16,4 +16,8 @@
   xdg.configFile."yazi" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/home/config/yazi";
   };
+
+  xdg.configFile."fastfetch" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/home/config/fastfetch";
+  };
 }

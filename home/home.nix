@@ -31,6 +31,8 @@
     };
     
     initContent = ''
+    fastfetch
+
     function y() {
         local tmp cwd; tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
         command yazi "$@" --cwd-file="$tmp"
