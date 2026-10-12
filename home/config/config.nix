@@ -20,4 +20,8 @@
   xdg.configFile."fastfetch" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/home/config/fastfetch";
   };
+
+  xdg.configFile."noctalia" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/home/config/noctalia";
+  };
 }
