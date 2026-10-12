@@ -5,7 +5,7 @@
   [
     ./desktops/gnome.nix
     ./desktops/niri.nix
-    ./desktops/noctalia.nix
+    #./desktops/hyprland.nix
 
     ./languages/kotlin.nix
     ./languages/python.nix
