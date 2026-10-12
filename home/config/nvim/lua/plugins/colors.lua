@@ -59,7 +59,17 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     keys = {
-      { "<leader>e", "<cmd>Neotree toggle left<cr>", desc = "Toggle File Explorer" },
+      { "<leader><leader>", "<cmd>Neotree toggle float reveal<cr>", desc = "Toggle Neotree" },
+    },
+    opts = {
+      filesystem = {
+        filtered_items = {
+          visible = true,
+        },
+        follow_current_file = {
+          enabled = true,
+        },
+      },
     },
   },
 }
