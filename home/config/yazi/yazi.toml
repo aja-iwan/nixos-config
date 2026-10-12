@@ -21,5 +21,10 @@ image_delay   = 30
 
 [opener]
 edit = [
-    { run = 'nvim "$@"', block = true, for = "unix" }
+    { run = 'nvim "%s"', block = true, desc = "Neovim" }
+]
+
+[open]
+rules = [
+    { mime = "text/*", use = "edit" }
 ]
