@@ -17,8 +17,12 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
-vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "Q", "<Nop>")
+vim.keymap.set("n", "q", "<Nop>")
 
 vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', { silent = true })
 vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', { silent = true })
 vim.keymap.set('n', '<leader>q', '<Cmd>bdelete<CR>', { silent = true })
+
+vim.keymap.set({ "n", "x" }, "s", "<Nop>", { silent = true })
+vim.keymap.set({ "n", "x" }, "S", "<Nop>", { silent = true })

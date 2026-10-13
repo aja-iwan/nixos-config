@@ -17,17 +17,41 @@ return {
     end,
   },
   {
-    'akinsho/bufferline.nvim',
+    "akinsho/bufferline.nvim",
     version = "*",
-    dependencies = 'nvim-tree/nvim-web-devicons',
+    dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
-      require("bufferline").setup({})
+      require("bufferline").setup {
+        options = {
+          mode = "buffers",
+          separator_style = "thin",
+          indicator = {
+            icon = "▎",
+            style = "underline", 
+          },
+
+          -- diagnostics = "nvim_lsp", 
+
+          diagnostics_indicator = function(count, level, diagnostics_dict, context)
+            local s = " "
+            for e, n in pairs(diagnostics_dict) do
+              local sym = e == "error" and " "
+                or (e == "warning" and " " or " ")
+              s = s .. n .. sym
+            end
+            return s
+          end,
+        },
+      }
     end,
   },
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     opts = {
+      indent = {
+        char = "│",
+      },
       scope = {
         enabled = true,
       },
@@ -51,25 +75,20 @@ return {
     },
   },
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      "nvim-tree/nvim-web-devicons",
-    },
-    keys = {
-      { "<leader><leader>", "<cmd>Neotree toggle float reveal<cr>", desc = "Toggle Neotree" },
-    },
+    "lewis6991/gitsigns.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
-      filesystem = {
-        filtered_items = {
-          visible = true,
-        },
-        follow_current_file = {
-          enabled = true,
-        },
-      },
+      auto_attach = true,
+      attach_to_untracked = true,
+      current_line_blame = true,
     },
+  },
+  {
+    "brenoprata10/nvim-highlight-colors",
+    config = function()
+      require("nvim-highlight-colors").setup({
+        render = "background",
+      })
+    end,
   },
 }

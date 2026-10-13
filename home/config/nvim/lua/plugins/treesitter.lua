@@ -16,11 +16,9 @@ return {
         "toml",
         "json"
       },
-      
       highlight = {
         enable = true, 
       },
-      
       indent = {
         enable = true,
       },
