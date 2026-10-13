@@ -47,7 +47,7 @@ output "eDP-1" {
 }
 
 layout {
-    gaps 6
+    gaps 8
     center-focused-column "never"
 
     preset-column-widths {
@@ -60,23 +60,23 @@ layout {
 
     focus-ring {
         width 2
-        active-color "#89b4fa"
-        inactive-color "#1e1e2e"
+        active-color "#b4befe"
+        inactive-color "#6c7086"
     }
 
     border {
         off
         width 4
-        active-color "#ffc87f"
-        inactive-color "#505050"
-        urgent-color "#9b0000"
+        active-color "#82aaff"
+        inactive-color "#828bb8"
+        urgent-color "#ff757f"
     }
 
     shadow {
         softness 30
         spread 5
         offset x=0 y=5
-        color "#0007"
+        color "#000010"
     }
 
     struts {
@@ -102,8 +102,8 @@ animations {
 }
 
 window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
+    match app-id=".*"
+    open-fullscreen false
 }
 
 window-rule {
@@ -151,6 +151,16 @@ binds {
     Mod+Tab repeat=false { toggle-overview; }
     Mod+Q repeat=false { close-window; }
 
+    Mod+H { focus-column-left; }
+    Mod+J { focus-workspace-down; }
+    Mod+K { focus-workspace-up; }
+    Mod+L { focus-column-right; }
+
+    Mod+Shift+H { move-column-left; }
+    Mod+Shift+J { move-column-to-workspace-down; }
+    Mod+Shift+K { move-column-to-workspace-up; }
+    Mod+Shift+L { move-column-right; }
+
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-workspace-down; }
     Mod+Up    { focus-workspace-up; }
@@ -160,11 +170,6 @@ binds {
     Mod+Shift+Down  { move-column-to-workspace-down; }
     Mod+Shift+Up    { move-column-to-workspace-up; }
     Mod+Shift+Right { move-column-right; }
-
-    Mod+Home { focus-column-first; }
-    Mod+End  { focus-column-last; }
-    Mod+Shift+Home { move-column-to-first; }
-    Mod+Shift+End  { move-column-to-last; }
 
     Mod+Ctrl+Left  { focus-monitor-left; }
     Mod+Ctrl+Down  { focus-monitor-down; }
@@ -176,11 +181,10 @@ binds {
     Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
 
-    Mod+Page_Down { move-workspace-down; }
-    Mod+Page_Up   { move-workspace-up; }
-
-    Mod+WheelScrollDown cooldown-ms=100 { focus-workspace-down; }
-    Mod+WheelScrollUp   cooldown-ms=100 { focus-workspace-up; }
+    Mod+WheelScrollDown       cooldown-ms=100 { focus-workspace-down; }
+    Mod+WheelScrollUp         cooldown-ms=100 { focus-workspace-up; }
+    Mod+Shift+WheelScrollDown cooldown-ms=100 { focus-column-right; }
+    Mod+Shift+WheelScrollUp   cooldown-ms=100 { focus-column-left; }
 
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
@@ -224,5 +228,3 @@ cursor {
     xcursor-size 24
 }
 
-
-include "noctalia.kdl"

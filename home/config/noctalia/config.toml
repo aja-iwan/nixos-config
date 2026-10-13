@@ -250,28 +250,7 @@ source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
-    builtin_ids = [
-        "alacritty",
-        "btop",
-        "cava",
-        "emacs",
-        "foot",
-        "gtk3",
-        "gtk4",
-        "ghostty",
-        "helix",
-        "hyprland",
-        "kcolorscheme",
-        "kitty",
-        "labwc",
-        "mango",
-        "niri",
-        "qt",
-        "scroll",
-        "starship",
-        "sway",
-        "wezterm"
-    ]
+    builtin_ids = [ "gtk3", "gtk4", "kcolorscheme", "qt" ]
 
 [wallpaper]
 directory = "/home/iwan/nixos/configuration/modules/wallpapers"
@@ -283,13 +262,13 @@ transition_on_startup = true
     order = "alphabetical"
 
     [wallpaper.default]
-    path = "/home/iwan/nixos/configuration/modules/wallpapers/dark-star.jpg"
+    path = "/home/iwan/nixos/configuration/modules/wallpapers/dominik-mayer.jpg"
 
     [wallpaper.last]
-    path = "/home/iwan/nixos/configuration/modules/wallpapers/dark-star.jpg"
+    path = "/home/iwan/nixos/configuration/modules/wallpapers/dominik-mayer.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/iwan/nixos/configuration/modules/wallpapers/dark-star.jpg"
+    path = "/home/iwan/nixos/configuration/modules/wallpapers/dominik-mayer.jpg"
 
 [widget.launcher]
 color = "primary"

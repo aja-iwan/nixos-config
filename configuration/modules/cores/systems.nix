@@ -27,6 +27,21 @@
     variant = "";
   };
 
+  services.keyd = {
+    enable = true;
+    keyboards = {
+      default = {
+        ids = [ "*" ];
+        settings = {
+          main = {
+            capslock = "esc";
+            esc = "capslock";
+          };
+        };
+      };
+    };
+  };
+
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
