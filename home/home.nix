@@ -15,10 +15,12 @@
     shellAliases = {
       rebuild = "sudo nixos-rebuild switch --flake .#nixos";
       garbage = "sudo nix-collect-garbage -d";
+      mkdir = "mkdir -pv";
       ls = "ls -a --color=auto";
       ll = "ls -lah --color=auto";
-      mkdir = "mkdir -pv";
+      g = "git";
       n = "nvim";
+      t = "tmux";
       c = "clear";
       h = "history";
       q = "exit";
