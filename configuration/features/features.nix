@@ -10,6 +10,7 @@
     ./languages/kotlin.nix
     ./languages/lua.nix
     ./languages/python.nix
+    ./languages/rust.nix
 
     ./programs/entertainment.nix
     ./programs/productivity.nix

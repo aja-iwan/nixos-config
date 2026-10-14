@@ -11,7 +11,6 @@
 
   environment.systemPackages = with pkgs; [
     obsidian
-    zed-editor
     android-studio
     android-tools
     #kdePackages.kdenlive

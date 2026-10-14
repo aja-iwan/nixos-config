@@ -34,6 +34,7 @@
   ];
   
   programs.zsh.enable = true;
+  programs.tmux.enable = true;
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono

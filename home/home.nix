@@ -31,6 +31,10 @@
     };
     
     initContent = ''
+    if [ -z "$TMUX" ] && [ -n "$PS1" ]; then
+      exec tmux
+    fi
+
     fastfetch
 
     function y() {
