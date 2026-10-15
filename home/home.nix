@@ -18,6 +18,11 @@
       mkdir = "mkdir -pv";
       ls = "ls -a --color=auto";
       ll = "ls -lah --color=auto";
+      gl = "git log --oneline --graph --decorate";
+      gd = "git diff --staged";
+      gs = "git status -s";
+      gc = "git commit -m";
+      ga = "git add .";
       g = "git";
       n = "nvim";
       t = "tmux";
