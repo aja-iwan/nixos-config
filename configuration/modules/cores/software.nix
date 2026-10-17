@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ inputs, config, lib, pkgs, ... }:
 
 {
   users.users."iwan" = {
@@ -22,9 +22,9 @@
 
   environment.systemPackages = with pkgs; [
     brave
-    neovim
-    yazi
     kitty
+    neovim
+    #yazi
     vulkan-tools
     wl-clipboard
     tree-sitter
