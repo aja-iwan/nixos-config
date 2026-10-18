@@ -8,10 +8,6 @@ return {
     enabled = false,
   },
   {
-    "folke/lazydev.nvim",
-    enabled = false,
-  },
-  {
     "catppuccin/nvim",
     enabled = false,
   },
@@ -41,10 +37,6 @@ return {
   },
   {
     "folke/persistence.nvim",
-    enabled = false,
-  },
-  {
-    "nvim-lua/plenary.nvim",
     enabled = false,
   },
 }
