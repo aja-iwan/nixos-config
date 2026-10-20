@@ -65,12 +65,16 @@ set("i", "<C-v>", "<C-o>v", { silent = true })
 -- Visual
 set("x", "<C-p>", '"_dP', { silent = true })
 
+-- Operator
+set("o", "w", "iw", { desc = "Inner word", silent = true })
+
 -- Goto
-set({ "n", "v" }, "gg", "%", { desc = "Go to matching pair", silent = true })
-set({ "n", "v" }, "gh", "^", { desc = "Go to start of line", silent = true })
-set({ "n", "v" }, "gj", "G", { desc = "Go to end of file", silent = true })
-set({ "n", "v" }, "gk", "gg", { desc = "Go to start of file", silent = true })
-set({ "n", "v" }, "gl", "$", { desc = "Go to end of line", silent = true })
+set({ "n", "v", "o" }, "gg", "%", { desc = "Go to matching pair", silent = true })
+set({ "n", "v", "o" }, "gh", "^", { desc = "Go to start of line", silent = true })
+set({ "n", "v", "o" }, "gj", "G", { desc = "Go to end of file", silent = true })
+set({ "n", "v", "o" }, "gk", "gg", { desc = "Go to start of file", silent = true })
+set({ "n", "v", "o" }, "gl", "$", { desc = "Go to end of line", silent = true })
+set({ "n", "v", "o" }, "G", "K", { desc = "Neovim LSP hover", silent = true })
 
 -- Nop
 set({ "n", "v" }, "q", "<Nop>", { silent = true })
