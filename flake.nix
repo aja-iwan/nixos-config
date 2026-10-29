@@ -19,13 +19,13 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./configuration/configuration.nix
+          ./configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.iwan = import ./home/home.nix;
+              users.iwan = import ./home.nix;
               backupFileExtension = "backup";
             };
           }

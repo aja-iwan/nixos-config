@@ -1,12 +1,13 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
+require "nvchad.mappings"
+
+-- add yours here
+
+-- Nvi keymaps
 local set = vim.keymap.set
 
 -- Clear search and stop snippet on escape
 set({ "i", "n", "s" }, "<esc>", function()
   vim.cmd("noh")
-  LazyVim.cmp.actions.snippet_stop()
   return "<esc>"
 end, { expr = true, desc = "Escape and Clear hlsearch" })
 
@@ -45,7 +46,7 @@ set({ "n", "v" }, "s", "*", { silent = true })
 set({ "n", "v" }, "S", "#", { silent = true })
 set({ "n", "v" }, "v", "<C-v>", { silent = true })
 set({ "n", "v" }, "<C-v>", "v", { silent = true })
-set({ "n", "v" }, "<C-q>", "v", { silent = true })
+set({ "n", "v" }, "<C-q>", "<cmd>q<CR>", { desc = "Quit" })
 set({ "n", "v" }, "<C-w>", "<cmd>w<CR>", { desc = "Write" })
 
 -- Normal
