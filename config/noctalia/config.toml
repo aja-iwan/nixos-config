@@ -252,7 +252,7 @@ wallpaper_scheme = "m3-content"
     builtin_ids = [ "gtk3", "gtk4", "kcolorscheme", "qt" ]
 
 [wallpaper]
-directory = "/home/iwan/nixos/configuration/modules/wallpapers"
+directory = "~/nixos/modules/wallpapers"
 transition_on_startup = true
 
     [wallpaper.automation]
@@ -261,13 +261,13 @@ transition_on_startup = true
     order = "alphabetical"
 
     [wallpaper.default]
-    path = "/home/iwan/nixos/configuration/modules/wallpapers/city-horizon.jpg"
+    path = "/home/iwan/nixos/modules/wallpapers/abstract-swirls.jpg"
 
     [wallpaper.last]
-    path = "/home/iwan/nixos/configuration/modules/wallpapers/city-horizon.jpg"
+    path = "/home/iwan/nixos/modules/wallpapers/abstract-swirls.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/iwan/nixos/configuration/modules/wallpapers/city-horizon.jpg"
+    path = "/home/iwan/nixos/modules/wallpapers/abstract-swirls.jpg"
 
 [widget.launcher]
 color = "primary"
