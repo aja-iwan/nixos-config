@@ -25,8 +25,6 @@
       gt-add = "git add .";
       tx-list = "tmux list-sessions";
       tx-kill = "tmux kill-server";
-      g = "git";
-      t = "tmux";
       n = "nvim";
       c = "clear";
       h = "history";
@@ -36,7 +34,7 @@
     oh-my-zsh = {
       enable = true;
       theme = "bira"; 
-      plugins = [ "git" "sudo" ]; 
+      plugins = [ "sudo" ]; 
     };
     
     initContent = ''

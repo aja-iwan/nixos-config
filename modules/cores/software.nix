@@ -24,7 +24,6 @@
     brave
     kitty
     neovim
-    #yazi
     vulkan-tools
     wl-clipboard
     tree-sitter
