@@ -24,10 +24,12 @@ return {
         ['<CR>'] = { 'accept', 'fallback' },
         ['<Up>'] = false,
         ['<Down>'] = false,
+        ['<Right>'] = false,
+        ['<Left>'] = false,
       },
       completion = { documentation = { auto_show = false } },
       sources = { default = { 'lsp', 'path', 'snippets', 'buffer' } },
-      fuzzy = { implementation = "lua" }
+      fuzzy = { implementation = 'lua' }
     },
   },
 }

@@ -3,7 +3,6 @@ return {
     "nvim-lua/plenary.nvim",
     lazy = true,
   },
-
   {
     'nvim-mini/mini.hipatterns',
     version = false,

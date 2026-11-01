@@ -1,8 +1,40 @@
 return {
   {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {
+      preset = "helix",
+    },
+    keys = {
+      {
+        "<leader>?",
+        function()
+          require("which-key").show({ global = false })
+        end,
+        desc = "Buffer Local Keymaps (which-key)",
+      },
+    },
+  },
+  {
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-    opts = {},
+    opts = {
+      signs = {
+        add = { text = "▎" },
+        change = { text = "▎" },
+        delete = { text = "" },
+        topdelete = { text = "" },
+        changedelete = { text = "▎" },
+        untracked = { text = "▎" },
+      },
+      signs_staged = {
+        add = { text = "▎" },
+        change = { text = "▎" },
+        delete = { text = "" },
+        topdelete = { text = "" },
+        changedelete = { text = "▎" },
+      },
+    },
   },
   {
     'nvim-telescope/telescope.nvim',
