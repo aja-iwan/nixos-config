@@ -86,7 +86,7 @@ vim.api.nvim_create_autocmd("FileType", {
         return
       end
       vim.wo[win].number = true
-      vim.wo[win].relativenumber = false
+      vim.wo[win].relativenumber = true
       vim.wo[win].signcolumn = "no"
       vim.wo[win].cursorline = true
       vim.wo[win].cursorlineopt = "line"
