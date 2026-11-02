@@ -64,11 +64,46 @@ opt.wildmode = "longest:full,full"
 opt.spelllang = { "en" }
 
 -- Netrw
-vim.g.netrw_browse_split = 0
-vim.g.netrw_bufsettings = "noma nomod nu rnu nowrap ro nobl"
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 0
+vim.g.netrw_bufsettings = "noma nomod nu nornu nowrap ro nobl"
 vim.g.netrw_hide = 1
-vim.g.netrw_keepdir = 1
 vim.g.netrw_list_hide = [[\(^\|\s\s\)\zs\.\S\+]]
-vim.g.netrw_liststyle = 3
-vim.g.netrw_preview = 1
 vim.g.netrw_sort_sequence = [[[\/]$,*]]
+vim.g.netrw_keepdir = 1
+
+local group = vim.api.nvim_create_augroup("netrw_ui", { clear = true })
+local header = "%#Title# (Netrw) %#Directory#%<%{fnamemodify(get(b:, 'netrw_curdir', ''), ':~')}"
+  .. "%=%#Comment# l Open | h Back | a New | . Hidden | r Rename | x Delete | Q Close %*"
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = group,
+  pattern = "netrw",
+  callback = function(ev)
+    vim.schedule(function()
+      local win = vim.fn.bufwinid(ev.buf)
+      if win == -1 then
+        return
+      end
+      vim.wo[win].number = true
+      vim.wo[win].relativenumber = false
+      vim.wo[win].signcolumn = "no"
+      vim.wo[win].cursorline = true
+      vim.wo[win].cursorlineopt = "line"
+      vim.wo[win].winhighlight = "CursorLine:Visual"
+      vim.wo[win].winbar = header
+    end)
+  end,
+})
+
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  group = group,
+  callback = function(ev)
+    if vim.bo[ev.buf].filetype == "netrw" or vim.bo[ev.buf].buftype ~= "" then
+      return
+    end
+    local wo = vim.wo
+    wo.number, wo.relativenumber = true, true
+    wo.signcolumn, wo.winbar, wo.winhighlight = "yes", "", ""
+  end,
+})

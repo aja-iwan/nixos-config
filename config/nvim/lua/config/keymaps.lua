@@ -48,8 +48,9 @@ set({ "n", "v" }, "s", "*", { silent = true, desc = "Search word forward" })
 set({ "n", "v" }, "S", "#", { silent = true, desc = "Search word backward" })
 set({ "n", "v" }, "v", "<C-v>", { silent = true, desc = "Visual block mode" })
 set({ "n", "v" }, "<C-v>", "v", { silent = true, desc = "Visual mode" })
-set({ "n", "v" }, "<C-q>", "<cmd>q<CR>", { desc = "Quit" })
-set({ "n", "v" }, "<C-w>", "<cmd>w<CR>", { desc = "Write" })
+set({ "n", "v" }, "<C-q>", "v", { silent = true, desc = "Visual mode" })
+set({ "n", "v" }, "<C-w>q", "<cmd>q<CR>", { desc = "Quit" })
+set({ "n", "v" }, "<C-w>w", "<cmd>w<CR>", { desc = "Write" })
 
 -- Normal
 set("n", "m", "o<Esc>", { silent = true, desc = "Insert empty line below" })
@@ -98,7 +99,7 @@ vim.api.nvim_create_autocmd("FileType", {
     map("A", "d", "New folder")
     map("r", "R", "Rename")
     map("x", "D", "Delete")
-    map("q", "<cmd>bdelete<CR>", "Close explorer")
+    map("Q", "<cmd>bdelete<CR>", "Close explorer")
     map("<C-l>", "<C-w>l", "Go to right window")
   end,
 })
