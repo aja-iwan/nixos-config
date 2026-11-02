@@ -2,15 +2,15 @@ local opt = vim.opt
 
 -- Umum
 opt.autowrite = true
-opt.clipboard = vim.env.SSH_CONNECTION and "" or "unnamedplus"
+opt.clipboard = "unnamedplus"
 opt.confirm = true
 opt.mouse = "a"
 opt.undofile = true
-opt.undolevels = 10000
+opt.undolevels = 100
 opt.updatetime = 200
 
 -- Tampilan
-opt.conceallevel = 2
+opt.conceallevel = 0
 opt.cursorline = true
 opt.laststatus = 3
 opt.linebreak = true
@@ -24,7 +24,7 @@ opt.sidescrolloff = 8
 opt.signcolumn = "yes"
 opt.smoothscroll = true
 opt.termguicolors = true
-opt.wrap = false
+opt.wrap = true
 
 -- Indentasi dan format
 opt.expandtab = true
@@ -66,11 +66,11 @@ opt.spelllang = { "en" }
 -- Netrw
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 0
-vim.g.netrw_bufsettings = "noma nomod nu nornu nowrap ro nobl"
+vim.g.netrw_keepdir = 1
 vim.g.netrw_hide = 1
 vim.g.netrw_list_hide = [[\(^\|\s\s\)\zs\.\S\+]]
 vim.g.netrw_sort_sequence = [[[\/]$,*]]
-vim.g.netrw_keepdir = 1
+vim.g.netrw_bufsettings = "noma nomod nu rnu nowrap ro nobl"
 
 local group = vim.api.nvim_create_augroup("netrw_ui", { clear = true })
 local header = "%#Title# (Netrw) %#Directory#%<%{fnamemodify(get(b:, 'netrw_curdir', ''), ':~')}"
@@ -82,16 +82,9 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function(ev)
     vim.schedule(function()
       local win = vim.fn.bufwinid(ev.buf)
-      if win == -1 then
-        return
+      if win ~= -1 then
+        vim.wo[win].winbar = header
       end
-      vim.wo[win].number = true
-      vim.wo[win].relativenumber = true
-      vim.wo[win].signcolumn = "no"
-      vim.wo[win].cursorline = true
-      vim.wo[win].cursorlineopt = "line"
-      vim.wo[win].winhighlight = "CursorLine:Visual"
-      vim.wo[win].winbar = header
     end)
   end,
 })
@@ -99,11 +92,8 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("BufWinEnter", {
   group = group,
   callback = function(ev)
-    if vim.bo[ev.buf].filetype == "netrw" or vim.bo[ev.buf].buftype ~= "" then
-      return
+    if vim.bo[ev.buf].filetype ~= "netrw" and vim.wo.winbar == header then
+      vim.wo.winbar = ""
     end
-    local wo = vim.wo
-    wo.number, wo.relativenumber = true, true
-    wo.signcolumn, wo.winbar, wo.winhighlight = "yes", "", ""
   end,
 })

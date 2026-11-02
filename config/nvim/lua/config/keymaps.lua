@@ -6,11 +6,9 @@ set("n", "<leader><leader>", "<cmd>Explore<CR>", { desc = "File explorer" })
 
 -- Clear search and stop snippet on escape
 set({ "i", "n", "s" }, "<esc>", function()
-  vim.cmd("nohlsearch")
-  local ls = package.loaded["luasnip"]
-  if ls and ls.expand_or_jumpable() then
-    ls.unlink_current()
-  end
+  vim.cmd.nohlsearch()
+  local ls = package.loaded.luasnip
+  if ls and ls.expand_or_jumpable() then ls.unlink_current() end
   return "<esc>"
 end, { expr = true, desc = "Escape and clear hlsearch" })
 
@@ -84,6 +82,7 @@ set({ "n", "v", "o" }, "gl", "$", { silent = true, desc = "Go to end of line" })
 set({ "n", "v" }, "q", "<Nop>", { silent = true, desc = "Disable macro recording" })
 set({ "i", "v" }, "<C-s>", "<Nop>", { silent = true, desc = "Disable <C-s>" })
 set({ "n", "i", "v" }, "<C-z>", "<Nop>", { silent = true, desc = "Disable suspend" })
+set({ "n", "i", "v", "o" }, "<MiddleMouse>", "<Nop>", { silent = true, desc = "Disable middle" })
 
 -- Netrw
 vim.api.nvim_create_autocmd("FileType", {
