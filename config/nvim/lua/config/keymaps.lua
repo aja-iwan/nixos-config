@@ -7,8 +7,9 @@ set("n", "<leader><leader>", "<cmd>Explore<CR>", { desc = "File explorer" })
 -- Clear search and stop snippet on escape
 set({ "i", "n", "s" }, "<esc>", function()
   vim.cmd("nohlsearch")
-  if vim.snippet.active() then
-    vim.snippet.stop()
+  local ls = package.loaded["luasnip"]
+  if ls and ls.expand_or_jumpable() then
+    ls.unlink_current()
   end
   return "<esc>"
 end, { expr = true, desc = "Escape and clear hlsearch" })
