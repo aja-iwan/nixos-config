@@ -15,7 +15,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Make sure to setup `mapleader` and `maplocalleader` before
+-- Make sure to setup `mapleader` and `maplocalleader`
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
@@ -24,5 +24,17 @@ require("lazy").setup({
   spec = {
     -- import your plugins
     { import = "plugins" },
+  },
+  performance = {
+    rtp = {
+      -- disable some rtp plugins
+      disabled_plugins = {
+        "gzip",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+      },
+    },
   },
 })

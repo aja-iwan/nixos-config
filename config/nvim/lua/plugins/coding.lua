@@ -13,6 +13,7 @@ return {
   },
   {
     "saghen/blink.cmp",
+    event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
       "saghen/blink.lib",
       "rafamadriz/friendly-snippets",

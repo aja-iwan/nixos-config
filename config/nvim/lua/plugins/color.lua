@@ -1,8 +1,8 @@
 return {
   {
     "folke/tokyonight.nvim",
-    lazy = false,
     priority = 1000,
+    lazy = false,
     config = function()
       vim.cmd.colorscheme "tokyonight"
       vim.api.nvim_set_hl(0, "Normal", { bg = "none" })

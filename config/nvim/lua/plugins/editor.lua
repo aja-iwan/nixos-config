@@ -4,6 +4,16 @@ return {
     event = "VeryLazy",
     opts = {
       preset = "helix",
+      spec = {
+        { "<MiddleMouse>", mode = { "n", "i", "v", "o" }, hidden = true },
+        { "<Left>", mode = { "n", "i", "v" }, hidden = true },
+        { "<Right>", mode = { "n", "i", "v" }, hidden = true },
+        { "<Up>", mode = { "n", "i", "v" }, hidden = true },
+        { "<Down>", mode = { "n", "i", "v" }, hidden = true },
+        { "<C-z>", mode = { "n", "i", "v" }, hidden = true },
+        { "<C-s>", mode = { "i", "v" }, hidden = true },
+        { "q", mode = { "n", "v" }, hidden = true },
+      },
     },
     keys = {
       {
@@ -40,6 +50,7 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     version = false,
+    cmd = 'Telescope',
     dependencies = {
       'nvim-lua/plenary.nvim',
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
@@ -48,6 +59,7 @@ return {
       local builtin = require('telescope.builtin')
       vim.keymap.set('n', '<leader>f', builtin.find_files, { desc = 'Telescope find files' })
       vim.keymap.set('n', '<leader>g', builtin.live_grep, { desc = 'Telescope live grep' })
+      vim.keymap.set('n', '<leader>r', builtin.oldfiles, { desc = 'Telescope oldfiles' })
       vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'Telescope buffers' })
       vim.keymap.set('n', '<leader>h', builtin.help_tags, { desc = 'Telescope help tags' })
     end,

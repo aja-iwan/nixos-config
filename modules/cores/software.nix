@@ -7,13 +7,14 @@
     extraGroups = [ "networkmanager" "wheel" "kvm" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
-      gcc 
-      git 
-      curl 
-      wget 
-      perl 
-      cmake 
-      sassc 
+      gcc
+      git
+      curl
+      wget
+      perl
+      cmake
+      unzip
+      sassc
       wmctrl
       gnumake
       fastfetch

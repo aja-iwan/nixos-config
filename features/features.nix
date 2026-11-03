@@ -8,7 +8,6 @@
     #./desktops/hyprland.nix
 
     ./languages/kotlin.nix
-    ./languages/lua.nix
     ./languages/python.nix
     ./languages/rust.nix
 
