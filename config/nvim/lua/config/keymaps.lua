@@ -1,16 +1,20 @@
 -- Nvi keymaps
 local set = vim.keymap.set
 
--- File explorer
-set("n", "<leader><leader>", "<cmd>Explore<CR>", { desc = "File explorer" })
+-- Toggle file explorer
+set("n", "<leader><leader>", function()
+	vim.cmd(vim.bo.filetype == "netrw" and "Rexplore" or "Explore")
+end, { desc = "Toggle netrw" })
 
 -- Clear search and stop snippet on escape
 set({ "i", "n", "s" }, "<esc>", function()
-  vim.cmd.nohlsearch()
-  local ls = package.loaded.luasnip
-  if ls and ls.expand_or_jumpable() then ls.unlink_current() end
-  return "<esc>"
-end, { expr = true, desc = "Escape and clear hlsearch" })
+	vim.cmd.nohlsearch()
+	local ls = package.loaded.luasnip
+	if ls and ls.expand_or_jumpable() then
+		ls.unlink_current()
+	end
+	return "<esc>"
+end, { expr = true, desc = "Escape and nohlsearch" })
 
 -- Disable arrow
 set({ "n", "i", "v" }, "<Left>", "<Nop>", { silent = true, desc = "Disable left arrow" })
@@ -86,20 +90,20 @@ set({ "n", "i", "v", "o" }, "<MiddleMouse>", "<Nop>", { silent = true, desc = "D
 
 -- Netrw
 vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("netrw_keymaps", { clear = true }),
-  pattern = "netrw",
-  callback = function(ev)
-    local function map(lhs, rhs, desc)
-      vim.keymap.set("n", lhs, rhs, { buffer = ev.buf, remap = true, silent = true, desc = desc })
-    end
-    map("l", "<CR>", "Open file or folder")
-    map("h", "-", "Go up one folder")
-    map(".", "gh", "Toggle dotfiles")
-    map("a", "%", "New file")
-    map("A", "d", "New folder")
-    map("r", "R", "Rename")
-    map("x", "D", "Delete")
-    map("Q", "<cmd>bdelete<CR>", "Close explorer")
-    map("<C-l>", "<C-w>l", "Go to right window")
-  end,
+	group = vim.api.nvim_create_augroup("netrw_keymaps", { clear = true }),
+	pattern = "netrw",
+	callback = function(ev)
+		local function map(lhs, rhs, desc)
+			vim.keymap.set("n", lhs, rhs, { buffer = ev.buf, remap = true, silent = true, desc = desc })
+		end
+		map("l", "<CR>", "Open file or folder")
+		map("h", "-", "Go up one folder")
+		map(".", "gh", "Toggle dotfiles")
+		map("a", "%", "New file")
+		map("A", "d", "New folder")
+		map("r", "R", "Rename")
+		map("x", "D", "Delete")
+		map("Q", "<cmd>bdelete<CR>", "Close explorer")
+		map("<C-l>", "<C-w>l", "Go to right window")
+	end,
 })

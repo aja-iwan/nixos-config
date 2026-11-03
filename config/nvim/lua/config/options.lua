@@ -5,6 +5,7 @@ opt.autowrite = true
 opt.clipboard = "unnamedplus"
 opt.confirm = true
 opt.mouse = "a"
+opt.timeoutlen = 300
 opt.undofile = true
 opt.undolevels = 100
 opt.updatetime = 200
@@ -18,9 +19,9 @@ opt.list = true
 opt.number = true
 opt.relativenumber = true
 opt.ruler = false
-opt.scrolloff = 4
+opt.scrolloff = 2
 opt.showmode = false
-opt.sidescrolloff = 8
+opt.sidescrolloff = 4
 opt.signcolumn = "yes"
 opt.smoothscroll = true
 opt.termguicolors = true
@@ -67,33 +68,5 @@ opt.spelllang = { "en" }
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 0
 vim.g.netrw_keepdir = 1
-vim.g.netrw_hide = 1
-vim.g.netrw_list_hide = [[\(^\|\s\s\)\zs\.\S\+]]
 vim.g.netrw_sort_sequence = [[[\/]$,*]]
-vim.g.netrw_bufsettings = "noma nomod nu rnu nowrap ro nobl"
-
-local group = vim.api.nvim_create_augroup("netrw_ui", { clear = true })
-local header = "%#Title# (Netrw) %#Directory#%<%{fnamemodify(get(b:, 'netrw_curdir', ''), ':~')}"
-  .. "%=%#Comment# l Open | h Back | a New | . Hidden | r Rename | x Delete | Q Close %*"
-
-vim.api.nvim_create_autocmd("FileType", {
-  group = group,
-  pattern = "netrw",
-  callback = function(ev)
-    vim.schedule(function()
-      local win = vim.fn.bufwinid(ev.buf)
-      if win ~= -1 then
-        vim.wo[win].winbar = header
-      end
-    end)
-  end,
-})
-
-vim.api.nvim_create_autocmd("BufWinEnter", {
-  group = group,
-  callback = function(ev)
-    if vim.bo[ev.buf].filetype ~= "netrw" and vim.wo.winbar == header then
-      vim.wo.winbar = ""
-    end
-  end,
-})
+vim.g.netrw_bufsettings = "noma nomod nu nornu nowrap ro nobl"
