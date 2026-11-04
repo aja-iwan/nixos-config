@@ -1,8 +1,7 @@
 { inputs, config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ ./noctalia.nix ];
+  imports = [ ./noctalia.nix ];
 
   programs.hyprland = {
     enable = true;
@@ -12,7 +11,8 @@
   
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.common.default = [ "gtk" ];
   };
   
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

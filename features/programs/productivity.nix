@@ -10,7 +10,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    obsidian
     android-studio
     android-tools
     #kdePackages.kdenlive

@@ -69,11 +69,15 @@ layout {
 
 prefer-no-csd
 spawn-at-startup "noctalia"
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Pictures/Screenshots/Screenshot %H:%M %d-%b-%Y.png"
 
 hotkey-overlay {
   skip-at-startup
   hide-not-bound
+}
+
+environment {
+  GDK_BACKEND "wayland"
 }
 
 cursor {

@@ -3,7 +3,6 @@
 {
   imports = 
   [
-    ./desktops/gnome.nix
     ./desktops/niri.nix
     #./desktops/hyprland.nix
 

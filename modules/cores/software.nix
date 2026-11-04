@@ -22,6 +22,10 @@
   };
 
   environment.systemPackages = with pkgs; [
+    gnome-themes-extra
+    adwaita-icon-theme
+    nwg-look
+    nautilus
     brave
     kitty
     neovim
@@ -35,6 +39,8 @@
   
   programs.zsh.enable = true;
   programs.tmux.enable = true;
+  programs.dconf.enable = true;
+  services.gvfs.enable = true;
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
