@@ -9,9 +9,11 @@
 
   programs.git = {
     enable = true;
-    userName = "aja-iwan";
-    userEmail = "ajai84799@gmail.com";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "aja-iwan";
+        email = "ajai84799@gmail.com";
+      };
       init = {
         defaultBranch = "main";
       };
@@ -51,19 +53,11 @@
       theme = "bira"; 
       plugins = [ "sudo" ]; 
     };
-    
+
     initContent = ''
     if [ -z "$TMUX" ] && [ -n "$PS1" ]; then
       exec tmux
     fi
-
-    function y() {
-      local tmp cwd; tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-      command yazi "$@" --cwd-file="$tmp"
-      IFS= read -r -d ' ' cwd < "$tmp"
-      [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd" || builtin true
-      command rm -f -- "$tmp"
-    }
     '';
   };
 }

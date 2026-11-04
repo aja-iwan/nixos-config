@@ -187,8 +187,9 @@ return {
 				lsp_format = "fallback",
 			},
 			formatters_by_ft = {
-				lua = { "stylua" },
 				fish = { "fish_indent" },
+				lua = { "stylua" },
+				python = { "ruff_format" },
 				sh = { "shfmt" },
 			},
 			formatters = {
