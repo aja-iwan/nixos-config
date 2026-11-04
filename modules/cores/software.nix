@@ -8,7 +8,6 @@
     shell = pkgs.zsh;
     packages = with pkgs; [
       gcc
-      git
       curl
       wget
       perl

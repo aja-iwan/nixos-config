@@ -6,6 +6,21 @@
   home.username = "iwan";
   home.homeDirectory = "/home/iwan";
   home.stateVersion = "26.05"; 
+
+  programs.git = {
+    enable = true;
+    userName = "aja-iwan";
+    userEmail = "ajai84799@gmail.com";
+    extraConfig = {
+      init = {
+        defaultBranch = "main";
+      };
+      core = {
+        askpass = "";
+      };
+    };
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
