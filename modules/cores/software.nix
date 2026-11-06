@@ -17,6 +17,7 @@
       wmctrl
       gnumake
       fastfetch
+      btop
     ];
   };
 
@@ -28,7 +29,6 @@
     brave
     kitty
     neovim
-    vulkan-tools
     wl-clipboard
     tree-sitter
     ripgrep

@@ -16,7 +16,6 @@
   security.polkit.enable = true;
  
   environment.systemPackages = with pkgs; [
-    niri
     xwayland-satellite
     hyprpolkitagent
     kdePackages.qtwayland

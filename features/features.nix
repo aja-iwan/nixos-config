@@ -3,7 +3,9 @@
 {
   imports = 
   [
+    ./desktops/login.nix
     ./desktops/niri.nix
+    ./desktops/mangowm.nix
     #./desktops/hyprland.nix
 
     ./languages/kotlin.nix

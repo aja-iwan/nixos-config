@@ -1,21 +1,11 @@
 { inputs, config, lib, pkgs, ... }:
 
 {
-  environment.systemPackages = [
-    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-  ];
-  
-  services.displayManager.noctalia-greeter = {
+  imports = [ inputs.noctalia.nixosModules.default ];
+
+  programs.noctalia = {
     enable = true;
-    passwordlessSyncUsers = [ "iwan" ];
-    settings = {
-      cursor.size = 24;
-      keyboard.layout = "us";
-    };
-    cursorTheme = {
-      package = pkgs.adwaita-icon-theme;
-      name = "Adwaita";
-    };
+    recommendedServices.enable = true;
   };
 
   services.power-profiles-daemon.enable = true;
