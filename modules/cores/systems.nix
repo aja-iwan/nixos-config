@@ -53,6 +53,8 @@
     wireplumber.enable = true;
   };
 
+  environment.systemPackages = [ pkgs.brightnessctl ];
+
   services.printing.enable = true;
 
   nix.settings = {

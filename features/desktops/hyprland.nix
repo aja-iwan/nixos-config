@@ -1,7 +1,7 @@
 { inputs, config, lib, pkgs, ... }:
 
 {
-  imports = [ ./noctalia.nix ];
+  imports = [ ./waybar.nix ];
 
   programs.hyprland = {
     enable = true;
@@ -12,15 +12,18 @@
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    config.common.default = [ "gtk" ];
+    config.hyprland.default = [ "hyprland" "gtk" ];
   };
   
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  services.hypridle.enable = true;
+  programs.hyprlock.enable = true;
   security.polkit.enable = true;
   
   environment.systemPackages = with pkgs; [
-    hyprpolkitagent
-    kdePackages.qtwayland
+    hyprpicker
+    hyprsunset
     qt5.qtwayland
+    qt6.qtwayland
   ];
 }

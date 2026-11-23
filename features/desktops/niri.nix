@@ -17,8 +17,8 @@
  
   environment.systemPackages = with pkgs; [
     xwayland-satellite
-    hyprpolkitagent
-    kdePackages.qtwayland
+    polkit_gnome
     qt5.qtwayland
+    qt6.qtwayland
   ];
 }

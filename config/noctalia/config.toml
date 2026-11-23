@@ -25,7 +25,7 @@ font_family = "JetBrainsMono Nerd Font Propo"
 layer = "top"
 margin_edge = 2
 margin_ends = 2
-padding = 8
+padding = 4
 position = "left"
 radius = 20
 scale = 1.1500000096857548
@@ -268,7 +268,7 @@ settings_window_translucent = true
     auto_sync = true
 
     [shell.launcher]
-    pinned = [ "brave-browser", "kitty", "org.gnome.Nautilus", "android-studio", "Waydroid", "org.vinegarhq.Sober" ]
+    pinned = [ "brave-origin", "kitty", "org.gnome.Nautilus", "android-studio", "Waydroid", "org.vinegarhq.Sober" ]
 
     [shell.panel]
     clipboard_placement = "floating"
@@ -296,7 +296,9 @@ source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
-    builtin_ids = [ "gtk3", "gtk4", "kcolorscheme", "qt" ]
+    builtin_ids = []
+    enable_builtin_templates = false
+    enable_community_templates = false
 
 [wallpaper]
 directory = "~/nixos/modules/wallpapers"
@@ -310,13 +312,13 @@ transition_on_startup = true
     order = "alphabetical"
 
     [wallpaper.default]
-    path = "/home/iwan/nixos/modules/wallpapers/dark-forest.jpg"
+    path = "/home/iwan/nixos/modules/wallpapers/flowers.jpg"
 
     [wallpaper.last]
-    path = "/home/iwan/nixos/modules/wallpapers/dark-forest.jpg"
+    path = "/home/iwan/nixos/modules/wallpapers/flowers.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/iwan/nixos/modules/wallpapers/dark-forest.jpg"
+    path = "/home/iwan/nixos/modules/wallpapers/flowers.jpg"
 
 [widget.launcher]
 color = "primary"

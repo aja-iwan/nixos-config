@@ -5,8 +5,7 @@
   [
     ./desktops/login.nix
     ./desktops/niri.nix
-    ./desktops/mangowm.nix
-    #./desktops/hyprland.nix
+    # ./desktops/hyprland.nix
 
     ./languages/kotlin.nix
     ./languages/python.nix

@@ -10,19 +10,22 @@
   programs.git = {
     enable = true;
     settings = {
+      init.defaultBranch = "main";
+      credential.helper = "store";
+      core.askpass = "";
+
       user = {
         name = "aja-iwan";
         email = "ajai84799@gmail.com";
       };
-      init = {
-        defaultBranch = "main";
-      };
-      credential = {
-        helper = "store";
-      };
-      core = {
-        askpass = "";
-      };
+    };
+  };
+
+  programs.lazygit = {
+    enable = true;
+    settings = {
+      os.editPreset = "nvim";
+      refresher.refreshInterval = 2;
     };
   };
 
@@ -38,14 +41,11 @@
       mkdir = "mkdir -pv";
       ls = "ls -a --color=auto";
       ll = "ls -lah --color=auto";
-      gt-log = "git log --oneline --graph --decorate";
-      gt-diff = "git diff --staged";
-      gt-stat = "git status -s";
-      gt-comm = "git commit -m";
-      gt-add = "git add .";
-      tx-list = "tmux list-sessions";
-      tx-kill = "tmux kill-server";
+      tl = "tmux list-sessions";
+      tk = "tmux kill-server";
+      g = "lazygit";
       n = "nvim";
+      b = "btop";
       c = "clear";
       h = "history";
       q = "exit";

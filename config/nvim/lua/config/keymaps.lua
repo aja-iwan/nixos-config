@@ -52,8 +52,6 @@ set({ "n", "v" }, "S", "#", { silent = true, desc = "Search word backward" })
 set({ "n", "v" }, "v", "<C-v>", { silent = true, desc = "Visual block mode" })
 set({ "n", "v" }, "<C-v>", "v", { silent = true, desc = "Visual mode" })
 set({ "n", "v" }, "<C-q>", "v", { silent = true, desc = "Visual mode" })
-set({ "n", "v" }, "<C-w>q", "<cmd>q<CR>", { desc = "Quit" })
-set({ "n", "v" }, "<C-w>w", "<cmd>w<CR>", { desc = "Write" })
 
 -- Normal
 set("n", "m", "o<Esc>", { silent = true, desc = "Insert empty line below" })
@@ -63,8 +61,8 @@ set("n", "<C-s>", ":%s/", { desc = "Substitute" })
 set("n", "z>", "zR", { silent = true, desc = "Open all folds" })
 set("n", "z<", "zM", { silent = true, desc = "Close all folds" })
 set("n", "Q", "<cmd>bdelete<CR>", { desc = "Close buffer" })
-set("n", "{", "<cmd>bprevious<CR>", { silent = true, desc = "Previous buffer" })
-set("n", "}", "<cmd>bnext<CR>", { silent = true, desc = "Next buffer" })
+set("n", "_", "<cmd>bprevious<CR>", { silent = true, desc = "Previous buffer" })
+set("n", "+", "<cmd>bnext<CR>", { silent = true, desc = "Next buffer" })
 
 -- Insert
 set("i", "<C-v>", "<C-o>v", { silent = true, desc = "Start visual mode from insert" })
@@ -85,7 +83,7 @@ set({ "n", "v", "o" }, "gl", "$", { silent = true, desc = "Go to end of line" })
 -- Nop
 set({ "n", "v" }, "q", "<Nop>", { silent = true, desc = "Disable macro recording" })
 set({ "i", "v" }, "<C-s>", "<Nop>", { silent = true, desc = "Disable <C-s>" })
-set({ "n", "i", "v" }, "<C-z>", "<Nop>", { silent = true, desc = "Disable suspend" })
+set({ "n", "i", "v" }, "<C-z>", "<Nop>", { silent = true, desc = "Disable <C-z>" })
 set({ "n", "i", "v", "o" }, "<MiddleMouse>", "<Nop>", { silent = true, desc = "Disable middle" })
 
 -- Netrw
